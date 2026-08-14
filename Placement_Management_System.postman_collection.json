@@ -1,0 +1,512 @@
+{
+	"info": {
+		"_postman_id": "c1f728a2-9b24-4f40-8f92-placementmgmt",
+		"name": "Placement Management System REST APIs",
+		"description": "Complete Postman collection for Placement Management System backend built with Spring Boot, Hibernate, and MySQL/H2.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Get Dashboard Summary Statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/summary",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student Management",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Vikram Sharma\",\n  \"email\": \"vikram.sharma@example.com\",\n  \"phone\": \"9876543299\",\n  \"department\": \"Computer Science\",\n  \"courseBranch\": \"B.Tech CSE\",\n  \"cgpa\": 8.75,\n  \"graduationYear\": 2026,\n  \"resumeInfo\": \"Experienced in Spring Boot REST APIs and React frontends.\",\n  \"skills\": [\"Java\", \"Spring Boot\", \"MySQL\", \"React.js\"]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/students",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Students (Filtered & Paged)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students?search=Aarav&department=Computer Science&minCgpa=7.0&page=0&size=10&sortBy=cgpa&sortDir=desc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"students"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Aarav"
+								},
+								{
+									"key": "department",
+									"value": "Computer Science"
+								},
+								{
+									"key": "minCgpa",
+									"value": "7.0"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "cgpa"
+								},
+								{
+									"key": "sortDir",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Aarav Sharma\",\n  \"email\": \"aarav.sharma@example.com\",\n  \"phone\": \"9876543210\",\n  \"department\": \"Computer Science\",\n  \"courseBranch\": \"B.Tech CSE\",\n  \"cgpa\": 9.10,\n  \"graduationYear\": 2026,\n  \"resumeInfo\": \"Updated profile with AWS Certification.\",\n  \"skills\": [\"Java\", \"Spring Boot\", \"MySQL\", \"AWS\"]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/students/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"students",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company Management",
+			"item": [
+				{
+					"name": "Register Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"companyName\": \"Adobe Systems\",\n  \"description\": \"Global leader in digital media and digital marketing solutions.\",\n  \"contactPerson\": \"Karan Johar\",\n  \"email\": \"careers@adobe.com\",\n  \"phone\": \"080-67890000\",\n  \"website\": \"https://adobe.com\",\n  \"location\": \"Noida\",\n  \"status\": \"ACTIVE\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/companies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/companies?status=ACTIVE&page=0&size=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ACTIVE"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/companies/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Management",
+			"item": [
+				{
+					"name": "Create Job Opening",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"companyId\": 1,\n  \"jobTitle\": \"Data Engineer\",\n  \"jobDescription\": \"Build real-time data pipelines using Python and Spark.\",\n  \"eligibilityCriteria\": \"B.Tech CSE/IT with minimum 8.0 CGPA\",\n  \"minCgpa\": 8.0,\n  \"salaryPackage\": 21.0,\n  \"jobLocation\": \"Bengaluru\",\n  \"applicationDeadline\": \"2027-12-31T23:59:59\",\n  \"status\": \"OPEN\",\n  \"requiredSkills\": [\"Python\", \"MySQL\", \"Spark\"]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Jobs (Filtered & Paged)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs?status=OPEN&page=0&size=10&sortBy=salaryPackage&sortDir=desc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "OPEN"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "salaryPackage"
+								},
+								{
+									"key": "sortDir",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application Management",
+			"item": [
+				{
+					"name": "Student Applies for Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": 2,\n  \"jobId\": 1,\n  \"remarks\": \"Highly interested in Backend Engineering role.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Application Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"SHORTLISTED\",\n  \"remarks\": \"Resume shortlisted by recruitment team.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/applications/2/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								"2",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Interview Management",
+			"item": [
+				{
+					"name": "Schedule Interview",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"applicationId\": 2,\n  \"roundNumber\": 1,\n  \"interviewType\": \"TECHNICAL\",\n  \"scheduledDateTime\": \"2027-01-15T11:00:00\",\n  \"interviewerName\": \"Narayana Murthy\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"interviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Interview Result",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"result\": \"PASSED\",\n  \"feedback\": \"Demonstrated excellent problem solving and Java core concepts.\",\n  \"status\": \"COMPLETED\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interviews/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"interviews",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Placement Management",
+			"item": [
+				{
+					"name": "Create Official Placement Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": 1,\n  \"companyId\": 1,\n  \"jobId\": 1,\n  \"jobRole\": \"Software Engineer - Backend\",\n  \"packageAmount\": 18.50,\n  \"joiningDate\": \"2026-07-01\",\n  \"placementStatus\": \"ACCEPTED\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/placements",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"placements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Placements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/placements",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"placements"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
